@@ -2,7 +2,7 @@
 let btn=document.querySelectorAll(".btn");
 let reset=document.querySelector(".reset-btn");
 let p=document.querySelector("#paragraph");
-
+let button=document.getElementById('reset-btn')
 let winpatterns=[
   [0,1,2],
   [0,3,6],
@@ -18,13 +18,15 @@ cat();
 
 
 function cat(){
+  console.log("hii");
   let turn0=true;
 btn.forEach((box)=>{
   box.addEventListener("click",()=>{
+    console.log("clicked");
     if(turn0){
       box.innerHTML="x";
       turn0=false;
-    console.log("run");
+    
     }
     else{
       box.innerHTML="0";
@@ -51,13 +53,10 @@ function winner(){
       if(val1 === val2 && val2 === val3 ){
         p.innerHTML="winner"
        
-        btn.forEach((boxes)=>{
-          boxes.disabled=false;
-          boxes.innerHTML="";
-
-        })
+    
         
-        cat();
+        
+      
 
   
       }
@@ -71,4 +70,16 @@ function toto(){
           p.innerHTML="";
         })
 }
+button.addEventListener("click",()=>{
+  p.innerHTML="";
+
+  btn.forEach((btns)=>{
+    btns.innerHTML="";
+    btns.disabled=false;
+  })
+
+    
+  cat();
+})
+  
 
